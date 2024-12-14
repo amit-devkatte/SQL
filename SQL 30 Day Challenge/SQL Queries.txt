@@ -1,0 +1,30 @@
+/* Q1. You have two tables: Product and Supplier
+product table columns: product_id, product_name, supplier_id, Price
+Supplier table columns: supplier_id, supplier_name, Country
+write an SQL query to find the name of the product with the highest price in each country. return product_name,price,country */
+
+WITH CTE as (
+SELECT
+p.product_name, p.product_id,
+row_number() over(partition by s.country order by price desc) as rn
+FROM product as p
+JOIN supplier as s
+ON p.supplier_id = s.supplier_id
+)
+SELECT product_name, price
+FROM CTE
+WHERE rn =1 ;
+
+/*Q2.You have two tables : customers and transactions.
+-customer table : customer_id, customer_name, registration_date
+-transaction table: transaction_id, customer_id,transaction_date, amount
+write a SQL query to calculate the total transaction amount for each customer for the current year.
+The output should contain customer_name and total amount */
+
+SELECT  customer_name, sum(t.amount)
+FROM customer as c
+JOIN transaction as t
+ON c.customer_id = t.customer_id
+WHERE EXTRACT (YEAR FROM transaction_date) = EXTRACT(YEAR FROM current_date)
+GROUP BY customer_id;
+
