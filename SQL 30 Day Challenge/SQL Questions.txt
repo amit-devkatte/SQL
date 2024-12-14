@@ -1,0 +1,28 @@
+SQL Questions:
+
+/* Q1. You have two tables: Product and Supplier
+product table columns: product_id, product_name, supplier_id, Price
+Supplier table columns: supplier_id, supplier_name, Country
+write an SQL query to find the name of the product with the highest price in each country. 
+return product_name,price,country */
+
+/*Q2.You have two tables : customers and transactions.
+-customer table : customer_id, customer_name, registration_date
+-transaction table: transaction_id, customer_id,transaction_date, amount
+write a SQL query to calculate the total transaction amount for each customer for the current year.
+The output should contain customer_name and total amount */
+
+/* Q3. Assume you're given two tables containing data about Facebook Pages and
+ their respective likes (as in "Like a Facebook Page").
+Write a query to return the IDs of the Facebook pages that have zero likes. 
+The output should be sorted in ascending order based on the page IDs.
+pages Table:page_id, page_name
+page_likes Table:user_id, page_id, liked_date*/
+
+
+/* Q4. Write a query to calculate the click-through-rate CTR for the app in 2022
+and round the results to 2 decimal places.
+percentage of ctr = 100.0* number of clicks / number of impressions
+to avoid integer devision, multiply the ctr by 100.0, not 100
+events table : app_id, event_type (clicks / impression), timestamp
+*/
